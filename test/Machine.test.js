@@ -9,3 +9,13 @@ test('AC1',()=>{
     //Assert
     expect(result).toEqual(assert);
 })
+
+test('AC2',()=>{
+    //Arrange
+    const assert = "You have deposited Rs 50"
+    const machine = new Machine();
+    //Act
+    let result = machine.deposit(50);
+    //Assert
+    expect(result).toEqual(assert);
+})
