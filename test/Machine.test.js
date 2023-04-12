@@ -30,3 +30,13 @@ test('AC3',()=>{
     //Assert
     expect(result).toEqual(assert);
 })
+
+test('AC4',()=>{
+    //Arrange
+    const assert = "The item you selected is unavailable"
+    const machine = new Machine();
+    //Act
+    let result = machine.selectItem(code);
+    //Assert
+    expect(result).toEqual(assert);
+})
