@@ -19,9 +19,14 @@ module.exports = class Machine {
     selectItem = (code) => {
         for(let item of this.items){
             const key = Object.keys(item)[0];
-            if(key!== code){
-                return 'The item you selected is unavailable'
-            };
-        };
-    };
-};
+            const value = Object.values(item)[0];
+
+            if(key===code){
+                if(value>this.totalDeposit){
+                    return `Your deposit is insufficient.  Please add Rs ${value - this.totalDeposit} for this item`
+                }
+            }
+            return  'The item you selected is unavailable'
+        }
+    }
+}

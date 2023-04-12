@@ -12,7 +12,7 @@ test('AC1',()=>{
 
 test('AC2',()=>{
     //Arrange
-    const assert = "You have deposited Rs 500"
+    const assert = 'You have deposited Rs 500'
     const machine = new Machine();
     //Act
     let result = machine.deposit(500);
@@ -22,7 +22,7 @@ test('AC2',()=>{
 
 test('AC3',()=>{
     //Arrange
-    const assert = "You have deposited Rs 600"
+    const assert = 'You have deposited Rs 600'
     const machine = new Machine();
     machine.deposit(500)
     //Act
@@ -33,10 +33,21 @@ test('AC3',()=>{
 
 test('AC4',()=>{
     //Arrange
-    const assert = "The item you selected is unavailable"
+    const assert = 'The item you selected is unavailable'
     const machine = new Machine();
     //Act
     let result = machine.selectItem('chips');
+    //Assert
+    expect(result).toEqual(assert);
+})
+
+test('AC5',()=>{
+    //Arrange
+    const assert = 'Your deposit is insufficient.  Please add Rs 50 for this item'
+    const machine = new Machine();
+    machine.deposit(50)
+    //Act
+    let result = machine.selectItem('chocolate');
     //Assert
     expect(result).toEqual(assert);
 })
