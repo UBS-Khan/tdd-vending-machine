@@ -36,7 +36,7 @@ test('AC4',()=>{
     const assert = "The item you selected is unavailable"
     const machine = new Machine();
     //Act
-    let result = machine.selectItem(code);
+    let result = machine.selectItem('chips');
     //Assert
     expect(result).toEqual(assert);
 })
