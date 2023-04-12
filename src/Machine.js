@@ -3,7 +3,5 @@ module.exports = class Machine {
 
     }
 
-
-    seeSelections() {
-    }
+    seeSelections= () => [{'crisps': 'Rs 100'}, {'chocolate': 'Rs 350'}, {'mints': 'Rs 70'}]
 };
