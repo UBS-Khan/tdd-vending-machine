@@ -12,10 +12,10 @@ test('AC1',()=>{
 
 test('AC2',()=>{
     //Arrange
-    const assert = "You have deposited Rs 50"
+    const assert = "You have deposited Rs 500"
     const machine = new Machine();
     //Act
-    let result = machine.deposit(50);
+    let result = machine.deposit(500);
     //Assert
     expect(result).toEqual(assert);
 })
