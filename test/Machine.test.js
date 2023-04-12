@@ -19,3 +19,14 @@ test('AC2',()=>{
     //Assert
     expect(result).toEqual(assert);
 })
+
+test('AC3',()=>{
+    //Arrange
+    const assert = "You have deposited Rs 600"
+    const machine = new Machine();
+    machine.deposit(500)
+    //Act
+    let result = machine.deposit(100);
+    //Assert
+    expect(result).toEqual(assert);
+})

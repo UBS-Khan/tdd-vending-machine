@@ -9,10 +9,10 @@ module.exports = class Machine {
     deposit = (note) => {
         if(note === 10 || note === 20 || note === 50 || note === 100 || note === 500){
             this.credit += note
-            return `You have deposited Rs ${note}`
+            return `You have deposited Rs ${this.credit}`
         }
             return `Bill not acceptable!`
     };
 
-    
+
 }
