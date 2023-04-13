@@ -1,7 +1,8 @@
 module.exports = class Machine {
 
-    items = [{'crisps': 95}, {'chocolate': 350}, {'mints': 70}];
+    items = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}];
     validBills = [500, 100, 50, 20, 10]
+    availableBills = [20]
     totalDeposit = 0;
 
     seeSelections = () => this.items;
@@ -25,6 +26,9 @@ module.exports = class Machine {
                 return `Your deposit is insufficient.  Please add Rs ${diff} for this item`
             } else{
                 let change = this.totalDeposit - cost;
+                if(this.availableBills<change){
+                    return 'Cannot return proper change.  Please choose another item or cancel the transaction'
+                }
                 return {item : code, change : this.changeReturn(change)}
             }
         }

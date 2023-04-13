@@ -2,7 +2,7 @@ const Machine = require('../src/Machine');
 
 test('AC1',()=>{
     //Arrange
-    const assert = [{'crisps': 95}, {'chocolate': 350}, {'mints': 70}]
+    const assert = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}]
     const machine = new Machine();
     //Act
     let result = machine.seeSelections();
@@ -80,7 +80,7 @@ test('AC8',()=>{
     const machine = new Machine();
     machine.deposit(100)
     //Act
-    let result = machine.selectItem('crisps');
+    let result = machine.selectItem('mints');
     //Assert
     expect(result).toEqual(assert);
 })
