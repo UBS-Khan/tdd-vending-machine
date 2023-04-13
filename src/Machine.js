@@ -16,7 +16,6 @@ module.exports = class Machine {
 
     selectItem = (code) => {
         let item = this.items.map(item => Object.keys(item)[0]);
-        // let cost = this.items.map(item => Object.values(item));
 
         if(item.includes(code)){
             let selectedItems = this.items.find(item => item.hasOwnProperty(code));

@@ -51,3 +51,14 @@ test('AC5',()=>{
     //Assert
     expect(result).toEqual(assert);
 })
+
+test('AC6',()=>{
+    //Arrange
+    const assert = {item: 'mints', change: [20, 10]}
+    const machine = new Machine();
+    machine.deposit(100)
+    //Act
+    let result = machine.selectItem('mints');
+    //Assert
+    expect(result).toEqual(assert);
+})
