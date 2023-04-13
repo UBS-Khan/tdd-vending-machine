@@ -65,7 +65,7 @@ test('AC6',()=>{
 
 test('AC7',()=>{
     //Arrange
-    const assert = {change: 100}
+    const assert = {change: [100]}
     const machine = new Machine();
     machine.deposit(100)
     //Act

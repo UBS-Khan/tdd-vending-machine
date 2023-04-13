@@ -41,4 +41,8 @@ module.exports = class Machine {
         }
         return bills
     }
+
+    cancel = () => {
+        return {change: [this.totalDeposit]}
     }
+}
