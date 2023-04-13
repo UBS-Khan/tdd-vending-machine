@@ -1,9 +1,7 @@
 module.exports = class Machine {
-    constructor() {
 
-    }
-
-    items = [{'crisps': 'Rs 100'}, {'chocolate': 'Rs 350'}, {'mints': 'Rs 70'}];
+    items = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}];
+    validBills = [10, 20, 50, 100, 500]
     totalDeposit = 0;
 
     seeSelections = () => this.items;
@@ -17,16 +15,19 @@ module.exports = class Machine {
     };
 
     selectItem = (code) => {
-        for(let item of this.items){
-            const key = Object.keys(item)[0];
-            const value = Object.values(item)[0];
+        let item = this.items.map(item => Object.keys(item)[0]);
+        // let cost = this.items.map(item => Object.values(item));
 
-            if(key===code){
-                if(value>this.totalDeposit){
-                    return `Your deposit is insufficient.  Please add Rs ${value - this.totalDeposit} for this item`
-                }
+        if(item.includes(code)){
+            let selectedItems = this.items.find(item => item.hasOwnProperty(code));
+            let cost = selectedItems[code];
+            if(cost>this.totalDeposit){
+                let diff = cost-this.totalDeposit
+                return `Your deposit is insufficient.  Please add Rs ${diff} for this item`
+            } else{
+                return 'abc'
             }
-            return  'The item you selected is unavailable'
+        }
+        return 'The item you selected is unavailable'
         }
     }
-}

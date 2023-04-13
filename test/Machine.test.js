@@ -2,7 +2,7 @@ const Machine = require('../src/Machine');
 
 test('AC1',()=>{
     //Arrange
-    const assert = [{'crisps': 'Rs 100'}, {'chocolate': 'Rs 350'}, {'mints': 'Rs 70'}]
+    const assert = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}]
     const machine = new Machine();
     //Act
     let result = machine.seeSelections();
@@ -43,7 +43,7 @@ test('AC4',()=>{
 
 test('AC5',()=>{
     //Arrange
-    const assert = 'Your deposit is insufficient.  Please add Rs 50 for this item'
+    const assert = 'Your deposit is insufficient.  Please add Rs 300 for this item'
     const machine = new Machine();
     machine.deposit(50)
     //Act
