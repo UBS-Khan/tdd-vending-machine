@@ -1,13 +1,13 @@
 module.exports = class Machine {
 
     items = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}];
-    validBills = [10, 20, 50, 100, 500]
+    validBills = [500, 100, 50, 20, 10]
     totalDeposit = 0;
 
     seeSelections = () => this.items;
 
     deposit = (note) => {
-        if(note === 10 || note === 20 || note === 50 || note === 100 || note === 500){
+        if(this.validBills.includes(note)){
             this.totalDeposit += note
             return `You have deposited Rs ${this.totalDeposit}`
         }
@@ -24,9 +24,21 @@ module.exports = class Machine {
                 let diff = cost-this.totalDeposit
                 return `Your deposit is insufficient.  Please add Rs ${diff} for this item`
             } else{
-                return 'abc'
+                let change = this.totalDeposit - cost;
+                return {item : code, change : this.changeReturn(change)}
             }
         }
         return 'The item you selected is unavailable'
         }
+
+    changeReturn = (amount) => {
+        let bills = []
+        for(let bill of this.validBills){
+            while(amount>=bill){
+                amount -= bill
+                bills.push(bill)
+            }
+        }
+        return bills
+    }
     }
