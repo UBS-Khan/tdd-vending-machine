@@ -62,3 +62,14 @@ test('AC6',()=>{
     //Assert
     expect(result).toEqual(assert);
 })
+
+test('AC7',()=>{
+    //Arrange
+    const assert = {change: 100}
+    const machine = new Machine();
+    machine.deposit(100)
+    //Act
+    let result = machine.cancel();
+    //Assert
+    expect(result).toEqual(assert);
+})
