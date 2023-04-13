@@ -1,6 +1,6 @@
 module.exports = class Machine {
 
-    items = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}];
+    items = [{'crisps': 95}, {'chocolate': 350}, {'mints': 70}];
     validBills = [500, 100, 50, 20, 10]
     totalDeposit = 0;
 

@@ -2,7 +2,7 @@ const Machine = require('../src/Machine');
 
 test('AC1',()=>{
     //Arrange
-    const assert = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}]
+    const assert = [{'crisps': 95}, {'chocolate': 350}, {'mints': 70}]
     const machine = new Machine();
     //Act
     let result = machine.seeSelections();
@@ -70,6 +70,17 @@ test('AC7',()=>{
     machine.deposit(100)
     //Act
     let result = machine.cancel();
+    //Assert
+    expect(result).toEqual(assert);
+})
+
+test('AC8',()=>{
+    //Arrange
+    const assert = 'Cannot return proper change.  Please choose another item or cancel the transaction'
+    const machine = new Machine();
+    machine.deposit(100)
+    //Act
+    let result = machine.selectItem('crisps');
     //Assert
     expect(result).toEqual(assert);
 })
