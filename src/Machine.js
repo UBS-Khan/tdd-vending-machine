@@ -5,21 +5,21 @@ module.exports = class Machine {
     availableBills = [20]
     totalDeposit = 0;
 
-    seeSelections = () => this.items;
+    seeSelections = () => this.items;  //This method simply shows the selection of the user
 
-    deposit = (note) => {
-        if(this.validBills.includes(note)){
-            this.totalDeposit += note
+    deposit = (note) => {  //This method is taking money from the user
+        if(this.validBills.includes(note)){ 
+            this.totalDeposit += note //Valid bills will be added into the totalDeposit
             return `You have deposited Rs ${this.totalDeposit}`
         }
-            return `Bill not acceptable!`
+            return `Bill not acceptable!` //Invalid bills will throw the error!
     };
 
-    selectItem = (code) => {
-        let item = this.items.map(item => Object.keys(item)[0]);
+    selectItem = (code) => { 
+        let item = this.items.map(item => Object.keys(item)[0]); //This method is converting items into the objects
 
         if(item.includes(code)){
-            let selectedItems = this.items.find(item => item.hasOwnProperty(code));
+            let selectedItems = this.items.find(item => item.hasOwnProperty(code)); 
             let cost = selectedItems[code];
             if(cost>this.totalDeposit){
                 let diff = cost-this.totalDeposit
